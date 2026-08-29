@@ -1,0 +1,25 @@
+nohup: ignoring input
+✅ Database Ready
+🤖 GH PRIME STORE Started Successfully
+CALLBACK: admin
+EXACT: admin
+CALLBACK: api_keys
+EXACT: api_keys
+CALLBACK: api_keys_delete
+EXACT: api_keys_delete
+CALLBACK: api_keys
+EXACT: api_keys
+CALLBACK: api_keys_view
+EXACT: api_keys_view
+CALLBACK: admin
+EXACT: admin
+CALLBACK: api_keys
+EXACT: api_keys
+CALLBACK: api_keys_delete
+EXACT: api_keys_delete
+CALLBACK: api_keys
+EXACT: api_keys
+CALLBACK: api_keys_stats
+EXACT: api_keys_stats
+CALLBACK: api_keys_view
+EXACT: api_keys_view
