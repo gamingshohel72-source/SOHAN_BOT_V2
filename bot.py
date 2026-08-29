@@ -33,6 +33,21 @@ from admin.admins import *
 
 init_database()
 
+
+from flask import Flask
+import threading
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot Running"
+
+def web():
+    app.run(host="0.0.0.0", port=10000)
+
+threading.Thread(target=web).start()
+
 # Modules
 from users import *
 from admin import *
