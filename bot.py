@@ -1187,7 +1187,16 @@ app.add_error_handler(error_handler)
 
 print(f"🤖 {BOT_NAME} Started Successfully")
 
-app.run_polling(
-    drop_pending_updates=True,
-    allowed_updates=Update.ALL_TYPES
-)
+while True:
+    try:
+        app.run_polling(
+            drop_pending_updates=True,
+            allowed_updates=Update.ALL_TYPES
+        )
+
+    except Exception as e:
+        print("❌ Bot crashed:", e)
+        print("🔄 Restarting in 10 seconds...")
+
+        import time
+        time.sleep(10)
