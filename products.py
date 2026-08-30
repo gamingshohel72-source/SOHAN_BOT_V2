@@ -593,6 +593,59 @@ Select a Duration.
     )
 
 # ==========================
+# ADD DURATION
+# ==========================
+
+@route("add_duration")
+async def add_duration(update: Update,
+                       context: ContextTypes.DEFAULT_TYPE):
+
+    query = update.callback_query
+
+    uid = update.effective_user.id
+
+    await query.answer()
+
+    start_input(
+        uid,
+        "add_product_duration"
+    )
+
+    set(
+        uid,
+        "new_product_name",
+        value(uid,"selected_product")
+    )
+
+    msg = await query.edit_message_text(
+        text=f"""📦 {value(uid,'selected_product')}
+
+    ━━━━━━━━━━━━━━
+
+    ⏳ Send Duration
+
+    Example:
+
+    30 Days
+    365 Days
+    Lifetime
+    """,
+        reply_markup=back_admin()
+    )
+
+    set(
+        uid,
+        "product_message",
+        msg.message_id
+    )
+
+    set(
+        uid,
+        "new_product_name",
+        value(uid,"selected_product")
+    )
+
+# ==========================
 # PLAN DETAILS
 # ==========================
 
@@ -1431,6 +1484,7 @@ async def save_edit_price(update: Update,
         update.callback_query,
         pid
     )
+
 
 # ==========================
 # SEARCH PRODUCT

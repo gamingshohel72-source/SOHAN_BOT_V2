@@ -6,7 +6,7 @@ BOT_NAME = "GH PRIME STORE"
 
 BUILD = 1
 
-TOKEN = os.getenv("BOT_TOKEN", "8868436")
+TOKEN = os.getenv("BOT_TOKEN")
 
 OWNER_ID = int(os.getenv("OWNER_ID", "8153757163"))
 
