@@ -30,23 +30,11 @@ from logs import *
 from database import *
 from shop import *
 from admin.admins import *
+import threading
+from webserver import run
 
 init_database()
 
-
-from flask import Flask
-import threading
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Bot Running"
-
-def web():
-    app.run(host="0.0.0.0", port=10000)
-
-threading.Thread(target=web).start()
 
 # Modules
 from users import *
@@ -1128,6 +1116,8 @@ create_tables()
 
 from telegram.request import HTTPXRequest
 
+threading.Thread(target=run, daemon=True).start()
+
 request = HTTPXRequest(
     connect_timeout=60,
     read_timeout=60,
@@ -1193,6 +1183,7 @@ while True:
             drop_pending_updates=True,
             allowed_updates=Update.ALL_TYPES
         )
+
 
     except Exception as e:
         print("❌ Bot crashed:", e)

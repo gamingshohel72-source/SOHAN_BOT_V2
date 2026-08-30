@@ -27,6 +27,7 @@ from routes import route
 from utils import edit
 from input import start_input, stop_input, current_input
 from telegram import CopyTextButton
+from config import KEY_API_SECRET
 
 # ---------------------------------------------------------------------------
 # Remote API configuration

@@ -925,25 +925,29 @@ async def add_product(update: Update,
         "add_product_name"
     )
 
-    await edit(
+    msg = await query.edit_message_text(
 
-        query,
+    """➕ ADD PRODUCT
 
-"""➕ ADD PRODUCT
+    ━━━━━━━━━━━━━━
 
-━━━━━━━━━━━━━━
+    Send Product Name
 
-Send Product Name
+    Example:
 
-Example:
+    Netflix
+    Spotify
+    YouTube
+    """,
 
-Netflix
-Spotify
-YouTube
-""",
+    reply_markup=back_admin()
 
-        back_admin()
+    )
 
+    set(
+        update.effective_user.id,
+        "product_message",
+        msg.message_id
     )
 
 async def save_product_name(update: Update,
